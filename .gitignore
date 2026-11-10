@@ -1,0 +1,22 @@
+# Audio clips are copyrighted music. They stay on the local disk only.
+clip-download/
+clips/
+*.wav
+*.ogg
+*.opus
+*.m4a
+*.mp3
+
+# Build output
+garmin/bin/
+**/build/
+.gradle/
+local.properties
+*.prg
+*.apk
+
+# Signing keys
+*.der
+*.pem
+*.jks
+*.keystore

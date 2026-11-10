@@ -1,0 +1,4 @@
+<resources>
+    <!-- OGG container, Opus codec, mono. Source: 18 s clip. -->
+    <audio id="dude_emotional" filename="dude_emotional.opus" />
+</resources>
