@@ -1,0 +1,18 @@
+{
+  "clips": [
+    {
+      "id": "dude_emotional",
+      "title": "Dude - emotional",
+      "subtitle": "Dude",
+      "source": "https://www.youtube.com/watch?v=wpKtmcmZExE",
+      "start": "0:07",
+      "end": "0:25"
+    },
+    {
+      "id": "test_chime",
+      "title": "Test chime",
+      "subtitle": "Sound check",
+      "source": "samples/test_chime.flac"
+    }
+  ]
+}

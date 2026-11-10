@@ -21,9 +21,17 @@ class BgmApp extends Application.AppBase {
         }
     }
 
+    // The home screen is the clip list. Choosing a clip plays it at once.
     function getInitialView() as [Views] or [Views, InputDelegates] {
         var player = new BgmPlayer();
         _player = player;
-        return [new BgmView(player), new BgmDelegate(player)];
+
+        var clips = ClipLibrary.getClips();
+        var menu = new WatchUi.Menu2({:title => "BGM"});
+        for (var i = 0; i < clips.size(); i++) {
+            var clip = clips[i];
+            menu.addItem(new WatchUi.MenuItem(clip.title, clip.getSubLabel(), i, null));
+        }
+        return [menu, new ClipMenuDelegate(clips, player)];
     }
 }

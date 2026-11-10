@@ -1,33 +1,55 @@
 # BGM Watch
 
-Press a button on your watch and a short background-music clip plays out loud
-from the watch's own speaker. A personal soundtrack for dramatic moments.
+Pick a background-music clip on your watch and it plays out loud from the
+watch's own speaker. A personal soundtrack for dramatic moments.
 
-This repository holds a one-clip test app per platform. Each one does the same
-thing: show the clip name and playback state, play or stop on a button press,
-and change volume.
+| Folder     | Platform                                    | What is there |
+|------------|---------------------------------------------|---------------|
+| `garmin/`  | Garmin Forerunner 970 (Connect IQ)          | Clip list and player screen. |
+| `wearos/`  | Wear OS (Samsung Galaxy Watch, Pixel Watch) | One-clip test. The debug APK builds; it has not been run on a watch. See `wearos/README.md`. |
+| `watchos/` | Apple Watch                                 | One-clip test, source only. Never compiled: it needs a Mac with Xcode. See `watchos/README.md`. |
 
-| Folder     | Platform                               | Status |
-|------------|----------------------------------------|--------|
-| `garmin/`  | Garmin Forerunner 970 (Connect IQ)     | Builds. Not yet run on a watch. |
-| `wearos/`  | Wear OS (Samsung Galaxy Watch, Pixel Watch) | Debug APK builds. Not yet run on a watch. See `wearos/README.md`. |
-| `watchos/` | Apple Watch                            | Source only. Never compiled: it needs a Mac with Xcode. See `watchos/README.md`. |
+## The clip library
 
-## Audio clips are not in this repository
+`clips.json` lists the clips, in the order they appear on the watch:
 
-The clips are copyrighted music, so `.gitignore` excludes every audio file.
-Each app expects you to put your own clip in place before building:
+```json
+{
+  "id": "dude_emotional",
+  "title": "Dude - emotional",
+  "subtitle": "Dude",
+  "source": "https://www.youtube.com/watch?v=wpKtmcmZExE",
+  "start": "0:07",
+  "end": "0:25"
+}
+```
 
-- Garmin: `garmin/resources/audio/dude_emotional.opus` (OGG container, Opus
-  codec) or a WAV file with LPCM audio. The file name is set in
-  `garmin/resources/audio/audio.xml`.
-- Wear OS and Apple Watch: see the README in each folder.
+- `id`: lowercase letters, digits and underscores, starting with a letter.
+- `title` and `subtitle`: the two lines shown in the list. Use Latin letters;
+  the watch fonts may not have other scripts.
+- `source`: a YouTube link, or the path of an audio file inside this folder.
+- `start` and `end`: optional. Leave both out to use the whole source.
 
-To make a clip suited to a tiny speaker (mono, louder, bass removed):
+After editing `clips.json`, run:
 
 ```
-ffmpeg -i input.wav -af "loudnorm=I=-14:TP=-1.0:LRA=7,highpass=f=180" -ac 1 -ar 24000 -c:a libopus -b:a 32k dude_emotional.opus
+python tools/build_clips.py
 ```
+
+For each clip the tool fetches the audio, makes it mono, removes the bass a
+watch speaker cannot play, raises the loudness, and encodes it as OGG/Opus
+into `garmin/resources/audio/`. It then rewrites the two generated files,
+`garmin/resources/audio/audio.xml` and `garmin/source/ClipLibrary.mc`.
+Downloads are cached in `clips/cache/`; pass `--force` to fetch them again.
+
+The tool needs Python 3, `ffmpeg` and `ffprobe` on the PATH, and the `yt-dlp`
+Python package for YouTube links.
+
+### Audio is not in this repository
+
+The clips are copyrighted music, so `.gitignore` excludes every audio file
+except the generated test tone in `samples/`. A fresh clone has to run
+`tools/build_clips.py` once before the Garmin app will build.
 
 ## Garmin
 
@@ -38,18 +60,32 @@ Requirements: Connect IQ SDK 9.3.0 with the Forerunner 970 device files
 (installed through Garmin's SDK Manager), a JDK, and a developer key at
 `%USERPROFILE%\.garmin-ciq\developer_key.der`.
 
-Build:
+Build, then copy to a watch connected over USB:
 
 ```
 powershell -File garmin\build.ps1
+powershell -File garmin\install.ps1
 ```
 
-Install: connect the watch over USB and copy `garmin\bin\bgm.prg` into the
-watch's `GARMIN\APPS` folder. The app appears in the watch's app list as "BGM".
+`install.ps1` copies `garmin\bin\bgm.prg` into the watch's `GARMIN\Apps`
+folder. Unplug the watch and the app appears in its app list as "BGM".
 
-Controls: START (or a screen tap) plays or stops the clip. UP and DOWN change
-the volume. BACK exits. Audio only plays while the app is open.
+Controls:
 
-Known limits: Garmin's simulator is reported to crash with audio apps on this
-device, so testing happens on the real watch. Nothing external can launch a
-Garmin app, so a hot key is the fastest way to open it.
+| Screen | Action                      | Result |
+|--------|-----------------------------|--------|
+| List   | Swipe, or UP / DOWN         | Scroll through the clips |
+| List   | Tap a clip, or START        | Play it and open the player |
+| Player | Tap, or START               | Stop, or play again from the top |
+| Player | Swipe up, or UP             | Louder |
+| Player | Swipe down, or DOWN         | Quieter |
+| Player | BACK, or swipe right        | Stop and return to the list |
+
+The volume is remembered between runs. Audio only plays while the app is open.
+
+To try the app without a watch, start `simulator.exe` from the SDK's `bin`
+folder and run `monkeydo garmin\bin\bgm.prg fr970`. The simulator plays the
+clips through the computer's speakers.
+
+Known limit: nothing external can launch a Garmin app, so a hot key on the
+watch is the fastest way to open it.

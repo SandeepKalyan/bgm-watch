@@ -1,5 +1,5 @@
 # Audio clips are copyrighted music. They stay on the local disk only.
-clip-download/
+# (samples/ holds a generated test tone, which is fine to commit.)
 clips/
 *.wav
 *.ogg
