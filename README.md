@@ -10,8 +10,8 @@ and change volume.
 | Folder     | Platform                               | Status |
 |------------|----------------------------------------|--------|
 | `garmin/`  | Garmin Forerunner 970 (Connect IQ)     | Builds. Not yet run on a watch. |
-| `wearos/`  | Wear OS (Samsung Galaxy Watch, Pixel Watch) | See `wearos/README.md`. |
-| `watchos/` | Apple Watch                            | See `watchos/README.md`. |
+| `wearos/`  | Wear OS (Samsung Galaxy Watch, Pixel Watch) | Debug APK builds. Not yet run on a watch. See `wearos/README.md`. |
+| `watchos/` | Apple Watch                            | Source only. Never compiled: it needs a Mac with Xcode. See `watchos/README.md`. |
 
 ## Audio clips are not in this repository
 
