@@ -1,18 +1,235 @@
 {
+  "emotions": [
+    { "id": "mass",   "label": "MASS",   "x": 31,  "y": -53 },
+    { "id": "rage",   "label": "RAGE",   "x": -31, "y": -53 },
+    { "id": "thrill", "label": "THRILL", "x": -62, "y": 0 },
+    { "id": "sad",    "label": "SAD",    "x": -31, "y": 53 },
+    { "id": "love",   "label": "LOVE",   "x": 31,  "y": 53 },
+    { "id": "fun",    "label": "FUN",    "x": 62,  "y": 0 }
+  ],
   "clips": [
+    {
+      "id": "pushpa_mass",
+      "title": "Pushpa - mass",
+      "subtitle": "Pushpa",
+      "emotion": "mass",
+      "source": "https://www.youtube.com/watch?v=XqV-77DCn94",
+      "start": "0:26",
+      "end": "0:46"
+    },
+    {
+      "id": "akhanda_mass",
+      "title": "Akhanda - entry",
+      "subtitle": "Akhanda",
+      "emotion": "mass",
+      "source": "https://www.youtube.com/watch?v=W0dkqI6b2mA",
+      "start": "1:41",
+      "end": "2:01"
+    },
+    {
+      "id": "baahubali_mass",
+      "title": "Baahubali - saviour",
+      "subtitle": "Baahubali",
+      "emotion": "mass",
+      "source": "https://www.youtube.com/watch?v=wLYYYTZihD8",
+      "start": "0:37",
+      "end": "0:57"
+    },
+    {
+      "id": "chennakesava_mass",
+      "title": "Chennakesava - entry",
+      "subtitle": "Chennakesava Reddy",
+      "emotion": "mass",
+      "source": "https://www.youtube.com/watch?v=v0u_gItoPCc",
+      "start": "0:27",
+      "end": "0:47"
+    },
+    {
+      "id": "salaar_rage",
+      "title": "Salaar - Deva kills",
+      "subtitle": "Salaar",
+      "emotion": "rage",
+      "source": "https://www.youtube.com/watch?v=EqFpIq2Ymo4",
+      "start": "1:25",
+      "end": "1:45"
+    },
+    {
+      "id": "rrr_rage",
+      "title": "RRR - the fire",
+      "subtitle": "RRR",
+      "emotion": "rage",
+      "source": "https://www.youtube.com/watch?v=WkF_tVC2iNM",
+      "start": "0:02",
+      "end": "0:22"
+    },
+    {
+      "id": "arjunreddy_rage",
+      "title": "Arjun Reddy - fury",
+      "subtitle": "Arjun Reddy",
+      "emotion": "rage",
+      "source": "https://www.youtube.com/watch?v=CysVfjufC_0",
+      "start": "0:25",
+      "end": "0:45"
+    },
+    {
+      "id": "devara_rage",
+      "title": "Devara - fear",
+      "subtitle": "Devara",
+      "emotion": "rage",
+      "source": "https://www.youtube.com/watch?v=I7842NNDSlw",
+      "start": "1:24",
+      "end": "1:44"
+    },
+    {
+      "id": "goodachari_thrill",
+      "title": "Goodachari - spy",
+      "subtitle": "Goodachari",
+      "emotion": "thrill",
+      "source": "https://www.youtube.com/watch?v=l-D9Scfha78",
+      "start": "2:05",
+      "end": "2:25"
+    },
+    {
+      "id": "devara_thrill",
+      "title": "Devara - container",
+      "subtitle": "Devara",
+      "emotion": "thrill",
+      "source": "https://www.youtube.com/watch?v=MEB53a8nhAQ",
+      "start": "1:11",
+      "end": "1:31"
+    },
+    {
+      "id": "evaru_thrill",
+      "title": "Evaru - suspense",
+      "subtitle": "Evaru",
+      "emotion": "thrill",
+      "source": "https://www.youtube.com/watch?v=VRPUAUZa-m8",
+      "start": "4:37",
+      "end": "4:57"
+    },
+    {
+      "id": "rakshasudu_thrill",
+      "title": "Rakshasudu - killer",
+      "subtitle": "Rakshasudu",
+      "emotion": "thrill",
+      "source": "https://www.youtube.com/watch?v=WhIdicSIDig",
+      "start": "1:45",
+      "end": "2:05"
+    },
     {
       "id": "dude_emotional",
       "title": "Dude - emotional",
       "subtitle": "Dude",
+      "emotion": "sad",
       "source": "https://www.youtube.com/watch?v=wpKtmcmZExE",
       "start": "0:07",
       "end": "0:25"
     },
     {
-      "id": "test_chime",
-      "title": "Test chime",
-      "subtitle": "Sound check",
-      "source": "samples/test_chime.flac"
+      "id": "jersey_sad",
+      "title": "Jersey - station",
+      "subtitle": "Jersey",
+      "emotion": "sad",
+      "source": "https://www.youtube.com/watch?v=cFLYR5lvieI",
+      "start": "0:27",
+      "end": "0:47"
+    },
+    {
+      "id": "fidaa_sad",
+      "title": "Fidaa - sad",
+      "subtitle": "Fidaa",
+      "emotion": "sad",
+      "source": "https://www.youtube.com/watch?v=fg9pGdrXGx4",
+      "start": "0:24",
+      "end": "0:44"
+    },
+    {
+      "id": "geethagovindam_sad",
+      "title": "Geetha Govindam - sad",
+      "subtitle": "Geetha Govindam",
+      "emotion": "sad",
+      "source": "https://www.youtube.com/watch?v=w4dZioA8dcA",
+      "start": "0:01",
+      "end": "0:21"
+    },
+    {
+      "id": "avpl_sad",
+      "title": "AVPL - emotional",
+      "subtitle": "AVPL",
+      "emotion": "sad",
+      "source": "https://www.youtube.com/watch?v=et6roSI_asE",
+      "start": "2:09",
+      "end": "2:29"
+    },
+    {
+      "id": "sitaramam_love",
+      "title": "Sita Ramam - theme",
+      "subtitle": "Sita Ramam",
+      "emotion": "love",
+      "source": "https://www.youtube.com/watch?v=uND-5Ywm3PQ",
+      "start": "2:20",
+      "end": "2:40"
+    },
+    {
+      "id": "hinanna_love",
+      "title": "Hi Nanna - love",
+      "subtitle": "Hi Nanna",
+      "emotion": "love",
+      "source": "https://www.youtube.com/watch?v=xi42syCzbDk",
+      "start": "0:24",
+      "end": "0:44"
+    },
+    {
+      "id": "majili_love",
+      "title": "Majili - love",
+      "subtitle": "Majili",
+      "emotion": "love",
+      "source": "https://www.youtube.com/watch?v=NhR-wA5-0Z8",
+      "start": "0:09",
+      "end": "0:29"
+    },
+    {
+      "id": "yemaayachesave_love",
+      "title": "Ye Maaya - reunion",
+      "subtitle": "Ye Maaya Chesave",
+      "emotion": "love",
+      "source": "https://www.youtube.com/watch?v=ahfGaf6IWpg",
+      "start": "2:43",
+      "end": "3:03"
+    },
+    {
+      "id": "faaah_fun",
+      "title": "Faaahhhh!",
+      "subtitle": "Meme",
+      "emotion": "fun",
+      "source": "https://www.youtube.com/watch?v=VP6eZu3SAak"
+    },
+    {
+      "id": "jathiratnalu_fun",
+      "title": "Jathi Ratnalu - Chitty",
+      "subtitle": "Jathi Ratnalu",
+      "emotion": "fun",
+      "source": "https://www.youtube.com/watch?v=NHp38DyIOmQ",
+      "start": "0:00",
+      "end": "0:20"
+    },
+    {
+      "id": "eenagaraniki_fun",
+      "title": "Ee Nagaraniki - Yellow",
+      "subtitle": "Ee Nagaraniki",
+      "emotion": "fun",
+      "source": "https://www.youtube.com/watch?v=fY5GclAPXA4",
+      "start": "1:17",
+      "end": "1:37"
+    },
+    {
+      "id": "f2_fun",
+      "title": "F2 - fun",
+      "subtitle": "F2",
+      "emotion": "fun",
+      "source": "https://www.youtube.com/watch?v=-BgLBEdukvk",
+      "start": "0:03",
+      "end": "0:23"
     }
   ]
 }

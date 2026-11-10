@@ -21,17 +21,14 @@ class BgmApp extends Application.AppBase {
         }
     }
 
-    // The home screen is the clip list. Choosing a clip plays it at once.
+    // The home screen is the mood map: pick an emotion, then a clip.
     function getInitialView() as [Views] or [Views, InputDelegates] {
         var player = new BgmPlayer();
         _player = player;
 
+        var emotions = ClipLibrary.getEmotions();
         var clips = ClipLibrary.getClips();
-        var menu = new WatchUi.Menu2({:title => "BGM"});
-        for (var i = 0; i < clips.size(); i++) {
-            var clip = clips[i];
-            menu.addItem(new WatchUi.MenuItem(clip.title, clip.getSubLabel(), i, null));
-        }
-        return [menu, new ClipMenuDelegate(clips, player)];
+        var map = new MoodMapView(emotions, clips);
+        return [map, new MoodMapDelegate(map, emotions, clips, player)];
     }
 }

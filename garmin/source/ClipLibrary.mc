@@ -3,11 +3,50 @@ import Toybox.Lang;
 
 module ClipLibrary {
 
-    // Clips in the order they appear in the watch's list.
+    // Bubbles on the mood map. The two numbers place the bubble, as a
+    // percentage of the screen radius from the centre: x to the right,
+    // y downwards.
+    function getEmotions() as Array<Emotion> {
+        return [
+            new Emotion("MASS", 31, -53),
+            new Emotion("RAGE", -31, -53),
+            new Emotion("THRILL", -62, 0),
+            new Emotion("SAD", -31, 53),
+            new Emotion("LOVE", 31, 53),
+            new Emotion("FUN", 62, 0)
+        ] as Array<Emotion>;
+    }
+
+    // Clips in the order they appear in the watch's lists. The last
+    // number is the clip's emotion, as an index into getEmotions(), or
+    // -1 when it has none.
     function getClips() as Array<Clip> {
         return [
-            new Clip("Dude - emotional", "Dude", Rez.Audios.dude_emotional, 18006),
-            new Clip("Test chime", "Sound check", Rez.Audios.test_chime, 1846)
+            new Clip("Pushpa - mass", "Pushpa", Rez.Audios.pushpa_mass, 20006, 0),
+            new Clip("Akhanda - entry", "Akhanda", Rez.Audios.akhanda_mass, 20006, 0),
+            new Clip("Baahubali - saviour", "Baahubali", Rez.Audios.baahubali_mass, 20006, 0),
+            new Clip("Chennakesava - entry", "Chennakesava Reddy", Rez.Audios.chennakesava_mass, 20006, 0),
+            new Clip("Salaar - Deva kills", "Salaar", Rez.Audios.salaar_rage, 20006, 1),
+            new Clip("RRR - the fire", "RRR", Rez.Audios.rrr_rage, 20006, 1),
+            new Clip("Arjun Reddy - fury", "Arjun Reddy", Rez.Audios.arjunreddy_rage, 20006, 1),
+            new Clip("Devara - fear", "Devara", Rez.Audios.devara_rage, 20006, 1),
+            new Clip("Goodachari - spy", "Goodachari", Rez.Audios.goodachari_thrill, 20006, 2),
+            new Clip("Devara - container", "Devara", Rez.Audios.devara_thrill, 20006, 2),
+            new Clip("Evaru - suspense", "Evaru", Rez.Audios.evaru_thrill, 20006, 2),
+            new Clip("Rakshasudu - killer", "Rakshasudu", Rez.Audios.rakshasudu_thrill, 20006, 2),
+            new Clip("Dude - emotional", "Dude", Rez.Audios.dude_emotional, 18006, 3),
+            new Clip("Jersey - station", "Jersey", Rez.Audios.jersey_sad, 20006, 3),
+            new Clip("Fidaa - sad", "Fidaa", Rez.Audios.fidaa_sad, 20006, 3),
+            new Clip("Geetha Govindam - sad", "Geetha Govindam", Rez.Audios.geethagovindam_sad, 20006, 3),
+            new Clip("AVPL - emotional", "AVPL", Rez.Audios.avpl_sad, 20006, 3),
+            new Clip("Sita Ramam - theme", "Sita Ramam", Rez.Audios.sitaramam_love, 20006, 4),
+            new Clip("Hi Nanna - love", "Hi Nanna", Rez.Audios.hinanna_love, 20006, 4),
+            new Clip("Majili - love", "Majili", Rez.Audios.majili_love, 20006, 4),
+            new Clip("Ye Maaya - reunion", "Ye Maaya Chesave", Rez.Audios.yemaayachesave_love, 20006, 4),
+            new Clip("Faaahhhh!", "Meme", Rez.Audios.faaah_fun, 4506, 5),
+            new Clip("Jathi Ratnalu - Chitty", "Jathi Ratnalu", Rez.Audios.jathiratnalu_fun, 20006, 5),
+            new Clip("Ee Nagaraniki - Yellow", "Ee Nagaraniki", Rez.Audios.eenagaraniki_fun, 20006, 5),
+            new Clip("F2 - fun", "F2", Rez.Audios.f2_fun, 20006, 5)
         ] as Array<Clip>;
     }
 }
