@@ -1,0 +1,11 @@
+# build outputs / tooling
+build/
+app/build/
+.gradle/
+.idea/
+*.iml
+local.properties
+.kotlin/
+
+# copyrighted clip: put your own here
+app/src/main/res/raw/dude_emotional.*
